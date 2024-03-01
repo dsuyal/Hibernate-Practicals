@@ -8,9 +8,50 @@ public class TestUser {
 		
 		//testadd();
 		//testUpdate();
-		testDelete();
+		//testDelete();
+		//testget();
+		testAuth();
 		
 		
+	}
+
+	private static void testAuth() {
+
+		UserModel model = new UserModel();
+		
+		UserDTO dto = model.authenticate("ab@gmail.com", "123");
+		
+		if (dto !=null) {
+			
+			System.out.println(dto.getId());
+			System.out.println(dto.getFirstName());
+			System.out.println(dto.getLastName());
+			System.out.println(dto.getLoginId());
+			System.out.println(dto.getPassword());
+			System.out.println(dto.getDob());
+			System.out.println(dto.getAddress());
+			
+		} else {
+			System.out.println("Authentication failed..dto..");
+
+		}
+		
+		
+	}
+
+	private static void testget() {
+
+		UserModel model = new UserModel();
+		
+		UserDTO dto = model.findByPk(1);
+		
+		System.out.println(dto.getId());
+		System.out.println(dto.getFirstName());
+		System.out.println(dto.getLastName());
+		System.out.println(dto.getLoginId());
+		System.out.println(dto.getPassword());
+		System.out.println(dto.getDob());
+		System.out.println(dto.getAddress());
 		
 	}
 
